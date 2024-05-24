@@ -1,0 +1,16 @@
+
+
+23-05-202401:52:28User: hi
+23-05-202401:52:28BOT: Hello! How can I assist you today?
+
+23-05-202401:52:49User: I am needing help
+23-05-202401:52:49BOT: I am here to help you. Please let me know what you need assistance with.
+
+23-05-202401:54:02User: hello
+23-05-202401:54:02BOT: Hello! How can I assist you today?
+
+23-05-202401:56:11User: jklnki
+23-05-202401:56:11BOT: I'm sorry, I didn't understand that. Can you please provide more information or clarify your request?
+
+23-05-202401:56:27User: l;k;lk;
+23-05-202401:56:27BOT: I'm sorry, I didn't understand that. Can you please provide more information or clarify your request?

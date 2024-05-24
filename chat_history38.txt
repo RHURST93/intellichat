@@ -1,0 +1,7 @@
+
+
+23-05-202403:00:16User: Hello, how are you?
+23-05-202403:00:16BOT: I'm doing great, thank you for asking! How can I assist you today?
+
+23-05-202403:00:27User: Who built you?
+23-05-202403:00:27BOT: I am proud to say that I was built by Randy Hurst. He created me to assist with coding-related queries. How can I help you today?

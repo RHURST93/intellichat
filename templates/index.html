@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+
+
+
+<body>
+<div  style="border: 2px solid black; border-radius: 10px; padding: 10px; background-color: darkslategrey; height: 210px; text-align: center;  ">
+    <h1 style="font-family: Arial; color: whitesmoke;font-size: 22px">
+	  Intellichat</h1>
+
+    <div style=" justify-items: center; align-self: center;">
+    <img src="../static//chat.png" alt="Chat Icon" id="chatIcon"   "/>
+</div>
+</div>
+
+<div class="chat_window">
+
+    <div class="top_menu">
+        <div class="title">CodeGPT:</div>
+    </div>
+
+    <ul class="messages" ></ul>
+    <div class="bottom_wrapper clearfix">
+        <div class="message_input_wrapper">
+            <input class="message_input"  placeholder="Type Question Here!" />
+        </div>
+        <div class="send_message">
+            <div class="icon"></div>
+            <div class="text">Ask</div>
+        </div>
+        
+    </div>
+    <div class="message_template">
+    <li class="message">
+        <div class="avatar"></div>
+        <div class="text_wrapper">
+            <div class="text"></div>
+        </div>
+    </li>
+</div>
+
+</div>
+<div class="footer" style="width: 100vw; background-color: darkslategrey; height: 210px; position: fixed; bottom: 0; border-radius: 10px; border: 2px solid black">
+  <div class="h1wrapper">
+      <h4 style="color: whitesmoke; font-size: 25px; margin-left: 15px; margin-top: 5px;">This project uses the below technologies.</h4>
+
+  </div>
+  <div class="listwrapper">
+  <ul style="color: whitesmoke;">
+    <li>OpenAI GPT-350 API</li>
+    <li>Python</li>
+    <li>Flask</li>
+    <li>JQuery</li>
+  </ul>  
+  </div>
+  
+</div>
+
+
+
+
+
+
+<script>
+    (function () {
+    var Message;
+    Message = function (arg) {
+        this.text = arg.text, this.message_side = arg.message_side;
+        this.draw = function (_this) {
+            return function () {
+                var $message;
+                $message = $($('.message_template').clone().html());
+                $message.addClass(_this.message_side).find('.text').html(_this.text);
+                $('.messages').append($message);
+                return setTimeout(function () {
+                    return $message.addClass('appeared');
+                }, 0);
+            };
+        }(this);
+        return this;
+    };
+    $(function () {
+        var getMessageText, message_side, sendMessage;
+        message_side = 'right';
+        getMessageText = function () {
+            var $message_input;
+            $message_input = $('.message_input');
+            return $message_input.val();
+        };
+
+
+        sendMessage = function (text) {
+    var $messages, message;
+    if (text.trim() === '') {
+        return;
+    }
+    $('.message_input').val('');
+    $messages = $('.messages');
+
+    // Set message_side based on whether the message is from the user or chatbot
+    var message_side = 'right';
+
+    message = new Message({
+        text: text,
+        message_side: message_side
+    });
+
+// Draw user message
+    message.draw();
+
+// Call getResponse() to get the chatbot's response
+$.get("/get", { msg: text }).done(function(data) {
+    var botMessage = new Message({
+        text: data,
+        message_side: 'left'
+    });
+
+
+    // Draw bot message
+    botMessage.draw();
+    $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
+});
+
+return $messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
+};
+
+        $('.send_message').click(function (e) {
+            return sendMessage(getMessageText());
+        });
+        $('.message_input').keyup(function (e) {
+            if (e.which === 13) {
+                return sendMessage(getMessageText());
+            }
+        });
+            // Add "Writing..." message
+    writingMessage = new Message({
+        text: 'I am CodeGPT, how can I help you?. ',
+        message_side: 'left'
+    });
+    writingMessage.draw();
+
+    });
+}.call(this));
+
+</script>
+
+
+<style>
+  #textInput {
+      border: 2px solid black;
+      border-bottom: 3px solid aqua;
+  }
+  
+  .userText {
+      color: white;
+      font-family: monospace;
+      font-size: 17px;
+      text-align: right;
+      line-height: 30px;
+  }
+  .userText span {
+      background-color: #009688;
+      padding: 10px;
+      border-radius: 10px;
+  }
+  .botText {
+      color: white;
+      font-family: monospace;
+      font-size: 17px;
+      text-align: left;
+      line-height: 30px;
+  }
+  .botText span {
+      color: black;
+      padding: 5px;
+      border-radius: 10px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: gray;
+    font-family: "Calibri", "Roboto", sans-serif;
+  }
+  .chat_window {
+    position: absolute;
+    width: calc(100% - 20px);
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: black;
+    overflow: hidden;
+  }
+  
+  
+  
+  .top_menu {
+    background-color: darkslategrey;
+    width: 100%;
+    padding: 20px 0 15px;
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  
+  .top_menu .title {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 20px;
+  }
+  
+  .messages {
+    position: absolute;
+    list-style: none;
+    padding: 20px 20px 0 20px;
+    margin: 0;
+    height: 347px;
+    width: 103%;
+    overflow: scroll;
+    background-color: black;
+    margin-right: 25%;
+    margin: auto
+  }
+  .messages .message {
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: all 0.5s linear;
+    opacity: 100;
+    background-color: black;
+  }
+  .messages .message.left .avatar {
+    background-color: green;
+    float: left;
+  }
+  .messages .message.left .text_wrapper {
+    background-color: rgb(12, 162, 12);
+    margin-left: 20px;
+  }
+  .messages .message.left .text_wrapper::after, .messages .message.left .text_wrapper::before {
+    right: 100%;
+    border-right-color: rgb(12, 162, 12);
+  }
+  .messages .message.left .text {
+    color: black;
+  }
+  .messages .message.left .avatar {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-image: url("../static//bot2.jpg");
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .messages .message.right {
+    width: 90%;
+  }
+  .messages .message.right .text_wrapper {
+    background-color: #3a6cf8;
+    margin-right: 20px;
+    float: right;
+    max-width: 80%;
+  }
+  .messages .message.right .text_wrapper::after, .messages .message.right .text_wrapper::before {
+    left: 100%;
+    border-left-color: #3a6cf8;
+  }
+  .messages .message.right .text {
+    color:black;
+  }
+  .messages .message.appeared {
+    opacity: 1;
+  }
+  .messages .message .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .messages .message .text_wrapper {
+    display: inline-block;
+    padding: 20px;
+    border-radius: 6px;
+    max-width: 80%;
+    min-width: 640px;
+    position: relative;
+  }
+  .messages .message .text_wrapper::after, .messages .message .text_wrapper:before {
+    top: 18px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .messages .message .text_wrapper::after {
+    border-width: 13px;
+    margin-top: 0px;
+  }
+  .messages .message .text_wrapper::before {
+    border-width: 15px;
+    margin-top: -2px;
+  }
+  .messages .message .text_wrapper .text {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  
+  .bottom_wrapper {
+    width: 100%;
+    background-color: darkslategrey;
+    padding: 20px 20px;
+    position: absolute;
+    bottom: 0px;
+    height: 105px;
+  }
+  .bottom_wrapper .message_input_wrapper {
+    display: inline-block;
+    height: 50px;
+    width: 350px;
+    border-radius: 25px;
+    border: 1px solid gray;
+    width: calc(100% - 100px);
+    position: relative;
+    padding:0 20px;
+    background-color: white;
+  }
+  .bottom_wrapper .message_input_wrapper .message_input {
+    border: none;
+    height: 40px;
+    box-sizing:border-box;
+    width: calc(100% - 30px);
+    position:fixed;
+    outline-width: 0;
+    background-color: white;
+    width: 190px;
+    margin-top: 2px;
+  }
+  .bottom_wrapper .send_message {
+    width: 90px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50px;
+    background-color: darkslategray;
+    border: 2px solid black;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-align: center;
+    float: right;
+    box-shadow: #1b1b1b 0px 6px 10px -2px;
+    
+  }
+  .bottom_wrapper .send_message:hover {
+    color: whitesmoke;
+    background-color: black;
+  }
+  .bottom_wrapper .send_message .text {
+    font-size: 18px;
+    font-weight: 300;
+    display: inline-block;
+    line-height: 48px;
+  }
+  
+  .message_template {
+    display: none;
+  }
+  
+  #chatIcon {
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 150px;
+  }
+  
+  .container {
+      text-align: center;
+      height: 50px;
+  
+  }
+  body {
+      background-color: rgb(29, 25, 7);
+  }
+  .container.text-center {
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: darkslategrey;
+      width: 100%; /* Set width to 100% for full width */
+      margin: auto;
+  }
+  .footer {
+        width: 100vw;
+        background-color: darkslategrey;
+        height: 210px;
+        position: fixed;
+        bottom: 0;
+        border-radius: 10px;
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .footer h4 {
+        color: whitesmoke;
+        font-size: 25px;
+        
+      }
+      .footer ul {
+        color: whitesmoke;
+        padding-left: 0;
+        list-style-type: circle;
+      }
+      .h1wrapper {
+        width: 80vw;
+        text-align: center;
+        border-radius: 20px 20px;
+        padding: 5px;
+        margin-bottom: 10px;
+        background-color: #1b1b1b;
+        margin-top: 5px;
+      }
+      .listwrapper {
+        width: 80vw;
+        text-align: center;
+        background-color: #1b1b1b;
+        border-radius: 20px 20px;
+        padding-top: 5px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        font-size: 15px;
+      }
+      .listwrapper ul {
+        color: whitesmoke;
+        padding-left: 40px;
+        list-style-type: circle;
+        text-align: center;
+        display: inline-block;
+      }
+  
+   </style>
+
+
+</body>
+</html>

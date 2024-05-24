@@ -1,0 +1,20 @@
+
+
+08-02-202422:49:31User: what state is mcalester in
+08-02-202422:49:31BOT: I would be happy to help. McAlester is a city located in the state of Oklahoma.
+
+08-02-202422:49:52User: code me the fibanucci sequence
+08-02-202422:49:52BOT: Sure, I can help you with that. Here is a sample code for generating the Fibonacci sequence:
+
+```
+def fibonacci(n):
+    sequence = [0, 1]
+    for i in range(2, n):
+        sequence.append(sequence[i-1] + sequence[i-2])
+    return sequence
+
+#Call the function and pass the value of n
+n = 10
+print(fibonacci(n))
+```
+This code will generate the first `n` numbers in the Fibonacci sequence and print them to the console.

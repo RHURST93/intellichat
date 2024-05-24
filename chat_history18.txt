@@ -1,0 +1,70 @@
+
+
+09-02-202416:12:40User: what time is it in california
+09-02-202416:12:40BOT: I'm sorry, I don't have that information. Can I assist you with anything else?
+
+09-02-202416:13:08User: what are the basics of ajax
+09-02-202416:13:08BOT: When it comes to the basics of AJAX (Asynchronous JavaScript And XML), it is a technique used for creating fast and dynamic web pages. It allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. The basic flow of an AJAX request is as follows: 
+
+1. An event occurs on a web page (for example, a button is clicked).
+2. An XMLHttpRequest object is created using JavaScript.
+3. The XMLHttpRequest object sends a request to a web server.
+4. The web server processes the request and returns a response.
+5. The XMLHttpRequest object receives the response from the server.
+6. The web page is updated dynamically without needing to reload the entire page.
+
+This technique is often used for loading content on a web page without requiring a full page reload. It can also be used to submit form data to a server and receive a response without a page refresh.
+
+09-02-202416:13:49User: hello
+09-02-202416:13:49BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202416:15:42User: hello
+09-02-202416:15:42BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202416:16:49User: hello
+09-02-202416:16:49BOT: Hello there! Is there anything I can assist you with for your coding needs?
+
+09-02-202416:19:48User: hello
+09-02-202416:19:48BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202416:21:08User: hello
+09-02-202416:21:08BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202416:27:09User: hello
+09-02-202416:27:09BOT: Hello, how can I assist you with your coding needs today?
+
+09-02-202417:40:36User: hello
+09-02-202417:40:36BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202417:46:17User: hello
+09-02-202417:46:17BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202417:47:56User: hello
+09-02-202417:47:56BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202417:48:38User: hello
+09-02-202417:48:38BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202417:48:53User: hello
+09-02-202417:48:53BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202417:53:20User: hello
+09-02-202417:53:20BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202417:55:03User: hello
+09-02-202417:55:03BOT: Hello there! How can I assist you with your coding needs today?
+
+09-02-202417:58:01User: hello
+09-02-202417:58:01BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202418:10:50User: hello
+09-02-202418:10:50BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202418:12:27User: hello
+09-02-202418:12:27BOT: Hello! How can I assist you with your coding needs today?
+
+09-02-202422:16:37User: what time zone is chicago
+09-02-202422:16:37BOT: Chicago is in the Central Time Zone (UTC-06:00).
+
+09-02-202422:16:48User: what is the time in chicago
+09-02-202422:16:48BOT: I'm sorry, I don't have that information. Can I assist you with anything else?

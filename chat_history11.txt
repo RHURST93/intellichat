@@ -1,0 +1,4 @@
+
+
+08/02 22:03:08 User: tell me a joke 
+08/02 22:03:08 BOT: I am sorry, but I don't have any jokes programmed in my system. However, you can always search for jokes on the internet.
