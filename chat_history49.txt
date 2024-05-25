@@ -2,3 +2,30 @@
 
 23-05-2024 23:18:05 User: hello
 23-05-2024 23:18:05 BOT: Hello! How can I help you today?
+
+23-05-2024 23:30:26 User: how do i center a div
+23-05-2024 23:30:26 BOT: To center a div, you can use the following CSS code:
+
+```css
+div {
+  margin: 0 auto;
+  text-align: center;
+}
+```
+
+This will horizontally center the div within its parent container.
+
+23-05-2024 23:30:40 User: format it like code
+23-05-2024 23:30:40 BOT: To center a div, you can use the following CSS code:
+
+```css
+div {
+  margin: 0 auto;
+  text-align: center;
+}
+```
+
+This will horizontally center the div within its parent container.
+
+24-05-2024 00:17:54 User: Hello, who built you?
+24-05-2024 00:17:54 BOT: I was built by Randy Hurst. He coded me to be the helpful coding consultant that I am today!
